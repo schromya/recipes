@@ -157,17 +157,24 @@ function build_table_colgroup(column_json_list) {
 function recipe_json_to_html_table(recipe_json) {
 	const table_class_name = pick_key(recipe_json, "table_class_name", "cls") || "recipe_flow_table";
 	const safe_table_class_name = escape_html(table_class_name);
+	const source_value = pick_key(recipe_json, "source", "src");
 	const columns = pick_key(recipe_json, "columns", "cols") || [];
 	const colgroup_html = build_table_colgroup(columns);
 	const rows = pick_key(recipe_json, "rows", "rows") || [];
 	const rows_html = build_table_rows(rows);
+	const source_html = source_value
+		? `<p class="recipe_source">Recipe source: <a href="${escape_html(source_value)}">${escape_html(source_value)}</a></p>`
+		: "";
 
-	return `<table class="${safe_table_class_name}">
+	return `<section class="recipe">
+	<table class="${safe_table_class_name}">
 		${colgroup_html}
 		<tbody>
             ${rows_html}
 		</tbody>
-	</table>`;
+	</table>
+	${source_html}
+	</section>`;
 }
 
 /**

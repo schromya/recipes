@@ -14,6 +14,15 @@ body {
 	margin: 0 auto;
 }
 
+.recipe + .recipe {
+	margin-top: 32px;
+}
+
+.recipe_source {
+	margin: 8px 0 0;
+	font-size: 14px;
+}
+
 /* Error Message */
 .error_message {
 	background: #ffe9e9;
@@ -47,9 +56,9 @@ body {
 
 /* Recipe Header Cells */
 .recipe_flow_table .header_cell {
+	height: 48px;
 	text-align: center;
 	font-weight: 700;
-	font-size: 28px;
 	background: #f1ffd8;
 }
 

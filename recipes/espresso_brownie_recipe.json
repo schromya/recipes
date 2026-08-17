@@ -1,10 +1,11 @@
 {
   "cls": "recipe_flow_table",
+  "source": "https://www.reddit.com/r/NonPoliticalTwitter/comments/1vahqqg/its_beautiful/",
   "rows": [
     [
-      { "t": "Butter and flour an 8x8-in pan", "c": 6, "k": "header_cell" }
+      { "t": "Butter and flour an 8x8-in pan", "c": 6, "k": "action_cell" }
     ],
-    [{ "t": "Preheat oven to 350°F (170°C)", "c": 6, "k": "header_cell" }],
+    [{ "t": "Preheat oven to 350°F (170°C)", "c": 6, "k": "action_cell" }],
     [
       { "t": "4 oz (115 g) unsalted butter" },
       { "t": "melt", "k": "action_cell" },

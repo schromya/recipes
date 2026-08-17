@@ -1,0 +1,84 @@
+/* Page Base */
+body {
+	margin: 0;
+	padding: 24px;
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	background: linear-gradient(180deg, #f7ffe9 0%, #eefad0 100%);
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+/* App Container */
+#app {
+	max-width: 860px;
+	margin: 0 auto;
+}
+
+/* Error Message */
+.error_message {
+	background: #ffe9e9;
+	border: 2px solid #c14c4c;
+	color: #7f2020;
+	padding: 12px;
+	border-radius: 8px;
+	font-weight: 700;
+}
+
+/* Recipe Table Base */
+.recipe_flow_table {
+	width: 100%;
+	max-width: 760px;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border: 2px solid #2f7f3e;
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	background: #fbffef;
+}
+
+/* Recipe Table Cells */
+.recipe_flow_table td {
+	border: 2px solid #2f7f3e;
+	padding: 8px;
+	vertical-align: middle;
+	font-size: 16px;
+	line-height: 1.2;
+	background: #fbffef;
+}
+
+/* Recipe Header Cells */
+.recipe_flow_table .header_cell {
+	text-align: center;
+	font-weight: 700;
+	font-size: 28px;
+	background: #f1ffd8;
+}
+
+/* Recipe Action Cells */
+.recipe_flow_table .action_cell {
+	text-align: center;
+	font-weight: 700;
+	background: #eefad0;
+}
+
+/* Recipe Bake Cells */
+.recipe_flow_table .bake_cell {
+	text-align: center;
+	font-weight: 700;
+	background: #eefad0;
+	white-space: pre-line;
+}
+
+/* A cell with r is one continuous highlighted step. */
+.recipe_flow_table .merged_cell {
+	background: #eefad0;
+}
+
+/* Merge an unused area while keeping it visually empty. */
+.recipe_flow_table .empty {
+	background: #fbffef;
+}
+
+.recipe_flow_table .empty.merged_cell {
+	border-left: none;
+	border-right: none;
+}

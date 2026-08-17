@@ -18,6 +18,11 @@ body {
 	margin-top: 32px;
 }
 
+.recipe_title {
+	margin: 0 0 12px;
+	font-size: 24px;
+}
+
 .recipe_source {
 	margin: 8px 0 0;
 	font-size: 14px;

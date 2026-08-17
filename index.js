@@ -1,5 +1,7 @@
 const recipe_file_paths = [
-	"recipes/espresso_brownie_recipe.json"
+    "recipes/ground_beef_and_potatoes_recipe.json",
+	"recipes/espresso_brownie_recipe.json",
+	
 ];
 
 /**

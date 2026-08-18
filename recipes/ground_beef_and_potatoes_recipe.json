@@ -21,21 +21,21 @@
       {"t":"For serving: non-fat plain Greek yogurt or sour cream, shredded cheddar cheese, cooked brown rice or cauliflower rice, and extra hot sauce"}
     ],
     [
-      {"t":"Heat in a large skillet over high heat. Once hot and shiny, reduce heat to medium.","k":"action_cell"},
-      {"t":"Add and cook, stirring often, until golden and beginning to soften, about 6 minutes.","k":"action_cell"},
-      {"t":"Add and cook, breaking apart the meat.","k":"action_cell","r":3},
+      {"t":"Heat in a large skillet over high heat, then reduce to medium.","k":"action_cell"},
+      {"t":"Add, stirring often until golden and beginning to soften, about 6 minutes.","k":"action_cell"},
+      {"t":"Add, breaking apart the meat.","k":"action_cell"},
+      {"t":"Add.","k":"action_cell","r":2},
       null,
-      null,
-      {"t":"Add seasonings. Continue cooking and breaking up the beef until the potatoes and onions are tender and the beef is fully cooked, about 6–8 minutes.","k":"action_cell","r":8},
-      null,
-      null,
-      null,
+      {"t":"Add. Continue cooking until everything is fully cooked, about 6-8 minutes.","k":"action_cell","r":8},
       null,
       null,
       null,
       null,
-      {"t":"Stir in. Taste and adjust the salt and pepper as desired.","k":"action_cell"},
-      {"t":"Serve hot with desired toppings, over rice, or on its own.","k":"action_cell"}
+      null,
+      null,
+      null,
+      {"t":"Stir in.","k":"action_cell"},
+      {"t":"Serve.","k":"action_cell"}
     ]
   ]
 }

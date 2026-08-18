@@ -1,4 +1,4 @@
-import { escape_html, recipe_json_to_html_table } from "./utils/recipe_conversion.js";
+import { recipe_json_to_html_table } from "./utils/recipe_conversion.js";
 
 const RECIPE_FILE_PATHS = [
 	"recipes/ground_beef_and_potatoes_recipe.json",
@@ -13,7 +13,7 @@ const RECIPE_TYPES = {
 
 function build_recipe_type_key() {
 	const items_html = Object.values(RECIPE_TYPES).map((options) =>
-		`<li><span class="recipe_type_swatch" style="--type-color: ${options.color}"></span>${escape_html(options.label)}</li>`
+		`<li><span class="recipe_type_swatch" style="--type-color: ${options.color}"></span>${options.label}</li>`
 	).join("");
 
 	return `<aside class="recipe_type_key" aria-label="Recipe type key">

@@ -38,7 +38,6 @@ body {
 	font-size: 14px;
 }
 
-/* Error Message */
 .error_message {
 	background: #ffe9e9;
 	border: 2px solid #c14c4c;
@@ -67,7 +66,6 @@ body {
 @media (max-width: 480px) {
 	.recipe_table_frame {
 		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
 	}
 
 	.recipe_flow_table {
@@ -93,13 +91,6 @@ body {
 	text-align: center;
 	font-weight: 700;
 	background: var(--recipe-highlight);
-}
-
-.recipe_flow_table .bake_cell {
-	text-align: center;
-	font-weight: 700;
-	background: var(--recipe-highlight);
-	white-space: pre-line;
 }
 
 .recipe_flow_table .merged_cell {

@@ -57,7 +57,7 @@ body {
 
 .recipe_flow_table {
 	width: 100%;
-	table-layout: fixed;
+	table-layout: auto;
 	border-collapse: collapse;
 	border: 2px solid var(--recipe-accent);
 	font-family: "Trebuchet MS", Verdana, sans-serif;
@@ -83,6 +83,10 @@ body {
 	font-size: 16px;
 	line-height: 1.2;
 	background: #fbffef;
+}
+
+.recipe_flow_table td:first-child {
+	min-width: 80px;
 }
 
 /* Recipe Header Cells */

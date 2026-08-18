@@ -1,5 +1,6 @@
 /* Page Base */
 body {
+	--compact-table-min-width: 500px;
 	margin: 0;
 	padding: 24px;
 	font-family: "Trebuchet MS", Verdana, sans-serif;
@@ -25,7 +26,6 @@ body {
 .recipe {
 	--recipe-accent: #2f7f3e;
 	--recipe-highlight: #eefad0;
-	--recipe-header: #f1ffd8;
 }
 
 .recipe_title {
@@ -71,7 +71,7 @@ body {
 	}
 
 	.recipe_flow_table {
-		min-width: 500px;
+		min-width: var(--compact-table-min-width);
 	}
 }
 
@@ -89,22 +89,12 @@ body {
 	min-width: 80px;
 }
 
-/* Recipe Header Cells */
-.recipe_flow_table .header_cell {
-	height: 48px;
-	text-align: center;
-	font-weight: 700;
-	background: var(--recipe-header);
-}
-
-/* Recipe Action Cells */
 .recipe_flow_table .action_cell {
 	text-align: center;
 	font-weight: 700;
 	background: var(--recipe-highlight);
 }
 
-/* Recipe Bake Cells */
 .recipe_flow_table .bake_cell {
 	text-align: center;
 	font-weight: 700;
@@ -112,12 +102,10 @@ body {
 	white-space: pre-line;
 }
 
-/* A cell with r is one continuous highlighted step. */
 .recipe_flow_table .merged_cell {
 	background: var(--recipe-highlight);
 }
 
-/* Merge an unused area while keeping it visually empty. */
 .recipe_flow_table .empty {
 	background: #fbffef;
 }

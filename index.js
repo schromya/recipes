@@ -1,17 +1,18 @@
-const RECIPE_FILE_PATH = [
-    "recipes/ground_beef_and_potatoes_recipe.json",
+import { escape_html, recipe_json_to_html_table } from "./utils/recipe_conversion.js";
+
+const RECIPE_FILE_PATHS = [
+	"recipes/ground_beef_and_potatoes_recipe.json",
 	"recipes/espresso_brownie_recipe.json",
-	
 ];
 
 // Add future recipe types here; recipes reference them through their "type" field.
 const RECIPE_TYPES = {
-	"one-pot": { label: "One-pot", color: "#7651a8", highlight: "#eee5f8", header: "#f1ffd8" },
-	"regular": { label: "Regular", color: "#2f7f3e", highlight: "#eefad0", header: "#f1ffd8" }
+	"one-pot": { label: "One-pot", color: "#7651a8", highlight: "#eee5f8" },
+	"regular": { label: "Regular", color: "#2f7f3e", highlight: "#eefad0" }
 };
 
 function build_recipe_type_key() {
-	const items_html = Object.entries(RECIPE_TYPES).map(([type, options]) =>
+	const items_html = Object.values(RECIPE_TYPES).map((options) =>
 		`<li><span class="recipe_type_swatch" style="--type-color: ${options.color}"></span>${escape_html(options.label)}</li>`
 	).join("");
 
@@ -43,11 +44,7 @@ async function initialize_recipe_view() {
 	}
 
 	try {
-		if (typeof recipe_json_to_html_table !== "function") {
-			throw new Error("recipe_json_to_html_table is unavailable.");
-		}
-
-		const recipe_json_list = await Promise.all(RECIPE_FILE_PATH.map(async (recipe_file_path) => {
+		const recipe_json_list = await Promise.all(RECIPE_FILE_PATHS.map(async (recipe_file_path) => {
 			const response = await fetch(recipe_file_path);
 
 			if (!response.ok) {

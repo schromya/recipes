@@ -2,40 +2,40 @@
   "title": "Ground Beef and Potatoes",
   "type": "one-pot",
   "source": "https://www.wellplated.com/ground-beef-and-potatoes/#wprm-recipe-container-60753",
-
-  "rows": [
+  "columns": [
     [
-      { "t": "2 tablespoons canola oil" },
-      { "t": "Heat in a large skillet over high heat. Once hot and shiny, reduce heat to medium.", "k": "action_cell" }
+      {"t":"2 tablespoons canola oil"},
+      {"t":"1 pound potatoes, peeled and diced into 1/4-inch cubes (Yukon Gold recommended)"},
+      {"t":"1 pound 93% lean ground beef"},
+      {"t":"1 small yellow onion, diced"},
+      {"t":"1 red bell pepper, diced"},
+      {"t":"1 tablespoon Worcestershire sauce"},
+      {"t":"1 teaspoon Dijon mustard"},
+      {"t":"2 teaspoons smoked paprika"},
+      {"t":"1 teaspoon garlic powder"},
+      {"t":"1 teaspoon dried oregano"},
+      {"t":"1 teaspoon kosher salt, plus more to taste"},
+      {"t":"1/4 teaspoon ground black pepper"},
+      {"t":"1-2 teaspoons hot sauce, plus more for serving (such as sriracha)"},
+      {"t":"2 green onions, sliced"},
+      {"t":"For serving: non-fat plain Greek yogurt or sour cream, shredded cheddar cheese, cooked brown rice or cauliflower rice, and extra hot sauce"}
     ],
     [
-      { "t": "1 pound potatoes, peeled and diced into 1/4-inch cubes (Yukon Gold recommended)" },
-      { "t": "Add and cook, stirring often, until golden and beginning to soften, about 6 minutes.", "k": "action_cell" }
-    ],
-    [
-      { "t": "1 pound 93% lean ground beef" },
-      { "t": "Add and cook, breaking apart the meat.", "k": "action_cell", "r": 3 }
-    ],
-    [{ "t": "1 small yellow onion, diced" }, { "t": "" }],
-    [{ "t": "1 red bell pepper, diced" }, { "t": "" }],
-    [
-      { "t": "1 tablespoon Worcestershire sauce" },
-      { "t": "Add seasonings. Continue cooking and breaking up the beef until the potatoes and onions are tender and the beef is fully cooked, about 6–8 minutes.", "k": "action_cell", "r": 8 }
-    ],
-    [{ "t": "1 teaspoon Dijon mustard" }, { "t": "" }],
-    [{ "t": "2 teaspoons smoked paprika" }, { "t": "" }],
-    [{ "t": "1 teaspoon garlic powder" }, { "t": "" }],
-    [{ "t": "1 teaspoon dried oregano" }, { "t": "" }],
-    [{ "t": "1 teaspoon kosher salt, plus more to taste" }, { "t": "" }],
-    [{ "t": "1/4 teaspoon ground black pepper" }, { "t": "" }],
-    [{ "t": "1-2 teaspoons hot sauce, plus more for serving (such as sriracha)" }, { "t": "" }],
-    [
-      { "t": "2 green onions, sliced" },
-      { "t": "Stir in. Taste and adjust the salt and pepper as desired.", "k": "action_cell" }
-    ],
-    [
-      { "t": "For serving: non-fat plain Greek yogurt or sour cream, shredded cheddar cheese, cooked brown rice or cauliflower rice, and extra hot sauce" },
-      { "t": "Serve hot with desired toppings, over rice, or on its own.", "k": "action_cell" }
+      {"t":"Heat in a large skillet over high heat. Once hot and shiny, reduce heat to medium.","k":"action_cell"},
+      {"t":"Add and cook, stirring often, until golden and beginning to soften, about 6 minutes.","k":"action_cell"},
+      {"t":"Add and cook, breaking apart the meat.","k":"action_cell","r":3},
+      null,
+      null,
+      {"t":"Add seasonings. Continue cooking and breaking up the beef until the potatoes and onions are tender and the beef is fully cooked, about 6–8 minutes.","k":"action_cell","r":8},
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {"t":"Stir in. Taste and adjust the salt and pepper as desired.","k":"action_cell"},
+      {"t":"Serve hot with desired toppings, over rice, or on its own.","k":"action_cell"}
     ]
   ]
 }

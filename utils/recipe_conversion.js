@@ -44,33 +44,39 @@ function build_table_cell(cell_json, row_span_override) {
 }
 
 /**
- * Render a rectangular row/column grid, hiding cells covered by r spans.
+ * Render column-oriented recipe data, hiding positions covered by spans.
  * The r value is the number of rows occupied, including the current row.
- * @param {Array<object|Array>} rows - Recipe rows.
+ * @param {Array<Array<object|null>>} columns - Recipe columns.
  * @returns {string} HTML row strings.
  */
-function build_table_rows(rows) {
-	const covered_columns_by_row = rows.map(() => new Set());
+function build_table_rows(columns) {
+	const row_count = Math.max(0, ...columns.map((column) => column.length));
+	const covered_columns_by_row = Array.from({ length: row_count }, () => new Set());
 
-	const rendered_rows = rows.map((row_json, row_index) => {
-		let column_index = 0;
+	return Array.from({ length: row_count }, (_, row_index) => {
 		const cells_html = [];
 
-		row_json.forEach((cell_json) => {
+		for (let column_index = 0; column_index < columns.length;) {
+			if (covered_columns_by_row[row_index].has(column_index)) {
+				column_index += 1;
+				continue;
+			}
+
+			const cell_json = columns[column_index][row_index];
+
+			if (!cell_json) {
+				column_index += 1;
+				continue;
+			}
+
 			const row_count_value = cell_json.r;
 			const coverage_row_span = get_row_span(row_count_value);
 			const column_span = Number(cell_json.c) || 1;
-			const is_covered = covered_columns_by_row[row_index].has(column_index);
-
-			if (is_covered) {
-				column_index += column_span;
-				return;
-			}
 
 			if (coverage_row_span) {
 				const last_covered_row = row_index + coverage_row_span - 1;
 
-				for (let covered_row = row_index + 1; covered_row <= last_covered_row && covered_row < rows.length; covered_row += 1) {
+				for (let covered_row = row_index + 1; covered_row <= last_covered_row && covered_row < row_count; covered_row += 1) {
 					for (let covered_column = column_index; covered_column < column_index + column_span; covered_column += 1) {
 						covered_columns_by_row[covered_row].add(covered_column);
 					}
@@ -79,12 +85,10 @@ function build_table_rows(rows) {
 
 			cells_html.push(build_table_cell(cell_json, coverage_row_span));
 			column_index += column_span;
-		});
+		}
 
 		return `<tr>${cells_html.join("")}</tr>`;
-	});
-
-	return rendered_rows.join("\n");
+	}).join("\n");
 }
 
 /**
@@ -94,12 +98,12 @@ function build_table_rows(rows) {
  * @returns {string} HTML table string.
  */
 export function recipe_json_to_html_table(recipe_json, recipe_type_options = {}) {
-	const { title, source, rows = [], type = "regular" } = recipe_json;
+	const { title, source, columns = [], type = "regular" } = recipe_json;
 	const type_options = recipe_type_options[type] || recipe_type_options.regular;
 	const theme_style = type_options
 		? ` style="--recipe-accent:${escape_html(type_options.color)};--recipe-highlight:${escape_html(type_options.highlight)}"`
 		: "";
-	const rows_html = build_table_rows(rows);
+	const rows_html = build_table_rows(columns);
 	const source_html = source
 		? `<p class="recipe_source">Recipe source: <a href="${escape_html(source)}">${escape_html(source)}</a></p>`
 		: "";

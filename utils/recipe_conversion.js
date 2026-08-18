@@ -30,22 +30,17 @@ function get_row_span(row_count_value) {
 /**
  * Build one HTML cell string from compact JSON cell data.
  * @param {object} cell_json - Cell with text/class/span values.
+ * @param {number|undefined} row_span_override - Validated row span.
  * @returns {string} HTML td element string.
  */
 function build_table_cell(cell_json, row_span_override) {
-	const cell_text = escape_html(cell_json.t || "");
-	const class_name_value = cell_json.k;
-	const col_span_value = cell_json.c;
-	const row_span_value = cell_json.r;
-	const final_row_span_value = row_span_override || row_span_value;
-	const is_merged_cell = row_span_override > 1;
+	const { t = "", k, c, r } = cell_json;
+	const class_name = k ? ` class="${escape_html(k)}"` : "";
+	const col_span = c ? ` colspan="${Number(c)}"` : "";
+	const row_span = row_span_override || r;
+	const row_span_attribute = row_span ? ` rowspan="${Number(row_span)}"` : "";
 
-	const class_names = [class_name_value, is_merged_cell ? "merged_cell" : ""].filter(Boolean);
-	const class_name = class_names.length ? ` class="${escape_html(class_names.join(" "))}"` : "";
-	const col_span = col_span_value ? ` colspan="${Number(col_span_value)}"` : "";
-	const row_span = final_row_span_value ? ` rowspan="${Number(final_row_span_value)}"` : "";
-
-	return `<td${class_name}${col_span}${row_span}>${cell_text}</td>`;
+	return `<td${class_name}${col_span}${row_span_attribute}>${escape_html(t)}</td>`;
 }
 
 /**
@@ -56,6 +51,7 @@ function build_table_cell(cell_json, row_span_override) {
  */
 function build_table_rows(rows) {
 	const covered_columns_by_row = rows.map(() => new Set());
+
 	const rendered_rows = rows.map((row_json, row_index) => {
 		let column_index = 0;
 		const cells_html = [];

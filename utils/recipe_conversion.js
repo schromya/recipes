@@ -13,6 +13,19 @@ function escape_html(value) {
 }
 
 /**
+ * Convert a recipe title into a stable URL fragment.
+ * @param {string} title - Recipe title.
+ * @returns {string} URL-safe fragment identifier.
+ */
+function title_to_id(title) {
+	return String(title)
+		.normalize("NFKD")
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-|-$/g, "");
+}
+
+/**
  * Validate a requested row count.
  * @param {number|string} row_count_value - Number of rows occupied by the cell.
  * @returns {number|undefined} Row span count or undefined when invalid.
@@ -107,9 +120,12 @@ export function recipe_json_to_html_table(recipe_json, recipe_type_options = {})
 	const source_html = source
 		? `<p class="recipe_source">Recipe source: <a href="${escape_html(source)}">${escape_html(source)}</a></p>`
 		: "";
-	const title_html = title ? `<h2 class="recipe_title">${escape_html(title)}</h2>` : "";
+	const recipe_id = title_to_id(title || "recipe");
+	const title_html = title
+		? `<h2 class="recipe_title">${escape_html(title)} <a class="recipe_link" href="#${recipe_id}" aria-label="Copy link to ${escape_html(title)}"><img src="assets/link.svg" alt=""></a></h2>`
+		: "";
 
-	return `<section class="recipe"${theme_style}>
+	return `<section class="recipe" id="${recipe_id}"${theme_style}>
 	${title_html}
 	<div class="recipe_table_frame"><table class="recipe_flow_table">
 		<tbody>

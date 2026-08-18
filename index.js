@@ -58,6 +58,17 @@ async function initialize_recipe_view() {
 			.map((recipe_json) => recipe_json_to_html_table(recipe_json, RECIPE_TYPES))
 			.join("\n");
 		app_element.innerHTML = `<div class="recipe_list">${recipes_html}</div>${build_recipe_type_key()}`;
+		app_element.addEventListener("click", (event) => {
+			const recipe_link = event.target.closest(".recipe_link");
+
+			if (recipe_link) {
+				navigator.clipboard?.writeText(recipe_link.href).catch(() => {});
+			}
+		});
+
+		if (location.hash) {
+			document.getElementById(location.hash.slice(1))?.scrollIntoView();
+		}
 	} catch (error) {
 		render_error(app_element, `Could not load recipe: ${error.message}`);
 	}

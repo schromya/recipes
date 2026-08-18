@@ -27,11 +27,30 @@ body {
 .recipe {
 	--recipe-accent: #2f7f3e;
 	--recipe-highlight: #eefad0;
+	scroll-margin-top: 24px;
 }
 
 .recipe_title {
 	margin: 0 0 12px;
 	font-size: 24px;
+}
+
+.recipe_link {
+	display: inline-flex;
+	vertical-align: middle;
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 120ms ease-in-out;
+}
+
+.recipe_title:hover .recipe_link,
+.recipe_link:focus-visible {
+	opacity: 1;
+}
+
+.recipe_link img {
+	width: 0.75em;
+	height: 0.75em;
 }
 
 .recipe_source {

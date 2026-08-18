@@ -49,14 +49,30 @@ body {
 }
 
 /* Recipe Table Base */
-.recipe_flow_table {
+.recipe_table_frame {
 	width: 100%;
 	max-width: 760px;
+	overflow: hidden;
+}
+
+.recipe_flow_table {
+	width: 100%;
 	table-layout: fixed;
 	border-collapse: collapse;
 	border: 2px solid var(--recipe-accent);
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	background: #fbffef;
+}
+
+@media (max-width: 480px) {
+	.recipe_table_frame {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.recipe_flow_table {
+		min-width: 500px;
+	}
 }
 
 /* Recipe Table Cells */

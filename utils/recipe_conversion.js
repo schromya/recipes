@@ -177,12 +177,12 @@ function recipe_json_to_html_table(recipe_json, recipe_type_options = {}) {
 
 	return `<section class="recipe recipe_type_${safe_type_value}" data-recipe-type="${safe_type_value}"${theme_style}>
 	${title_html}
-	<table class="${safe_table_class_name}">
+	<div class="recipe_table_frame"><table class="${safe_table_class_name}">
 		${colgroup_html}
 		<tbody>
             ${rows_html}
 		</tbody>
-	</table>
+	</table></div>
 	${source_html}
 	</section>`;
 }

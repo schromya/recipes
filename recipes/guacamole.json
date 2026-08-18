@@ -1,0 +1,23 @@
+ {
+  "title": "Guacamole",
+  "source": "https://www.simplyrecipes.com/recipes/perfect_guacamole/",
+  "columns": [
+    [
+      {"t":"2 ripe avocados"},
+      {"t":"1/4 teaspoon kosher salt, plus more to taste"},
+      {"t":"1 tablespoon fresh lime or lemon juice"},
+      {"t":"2 to 4 tablespoons minced red onion or thinly sliced green onion"},
+      {"t":"1 to 2 serrano (or jalapeño) chilis, stems and seeds removed, minced"},
+      {"t":"2 tablespoons cilantro (leaves and tender stems), finely chopped"},
+      {"t":"Pinch freshly ground black pepper"},
+      {"t":"1/2 ripe tomato, chopped"}
+    ],
+    [
+      {"t":"Mash.","k":"action_cell"},
+      {"t":"", "k":"empty", "r":7}
+    ],
+    [
+      {"t":"Stir.","k":"action_cell","r":8}
+    ]
+  ]
+}

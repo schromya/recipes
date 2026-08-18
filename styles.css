@@ -10,12 +10,22 @@ body {
 
 /* App Container */
 #app {
-	max-width: 860px;
+	max-width: 1080px;
 	margin: 0 auto;
+}
+
+.recipe_list {
+	max-width: 860px;
 }
 
 .recipe + .recipe {
 	margin-top: 32px;
+}
+
+.recipe {
+	--recipe-accent: #2f7f3e;
+	--recipe-highlight: #eefad0;
+	--recipe-header: #f1ffd8;
 }
 
 .recipe_title {
@@ -44,14 +54,14 @@ body {
 	max-width: 760px;
 	table-layout: fixed;
 	border-collapse: collapse;
-	border: 2px solid #2f7f3e;
+	border: 2px solid var(--recipe-accent);
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	background: #fbffef;
 }
 
 /* Recipe Table Cells */
 .recipe_flow_table td {
-	border: 2px solid #2f7f3e;
+	border: 2px solid var(--recipe-accent);
 	padding: 8px;
 	vertical-align: middle;
 	font-size: 16px;
@@ -64,27 +74,27 @@ body {
 	height: 48px;
 	text-align: center;
 	font-weight: 700;
-	background: #f1ffd8;
+	background: var(--recipe-header);
 }
 
 /* Recipe Action Cells */
 .recipe_flow_table .action_cell {
 	text-align: center;
 	font-weight: 700;
-	background: #eefad0;
+	background: var(--recipe-highlight);
 }
 
 /* Recipe Bake Cells */
 .recipe_flow_table .bake_cell {
 	text-align: center;
 	font-weight: 700;
-	background: #eefad0;
+	background: var(--recipe-highlight);
 	white-space: pre-line;
 }
 
 /* A cell with r is one continuous highlighted step. */
 .recipe_flow_table .merged_cell {
-	background: #eefad0;
+	background: var(--recipe-highlight);
 }
 
 /* Merge an unused area while keeping it visually empty. */
@@ -95,4 +105,57 @@ body {
 .recipe_flow_table .empty.merged_cell {
 	border-left: none;
 	border-right: none;
+}
+
+.recipe_type_key {
+	display: none;
+}
+
+@media (min-width: 1120px) {
+	#app {
+		display: grid;
+		grid-template-columns: minmax(0, 860px) 160px;
+		gap: 32px;
+		align-items: start;
+	}
+
+	.recipe_type_key {
+		display: block;
+		position: sticky;
+		top: 24px;
+		padding: 12px;
+		border: 1px solid #bfd08f;
+		border-radius: 8px;
+		background: #fbffef;
+	}
+
+	.recipe_type_key h2 {
+		margin: 0 0 10px;
+		font-size: 16px;
+	}
+
+	.recipe_type_key ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.recipe_type_key li {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 14px;
+	}
+
+	.recipe_type_key li + li {
+		margin-top: 8px;
+	}
+
+	.recipe_type_swatch {
+		width: 14px;
+		height: 14px;
+		border: 2px solid var(--type-color);
+		border-radius: 3px;
+		background: color-mix(in srgb, var(--type-color) 18%, white);
+	}
 }

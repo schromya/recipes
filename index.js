@@ -4,6 +4,23 @@ const recipe_file_paths = [
 	
 ];
 
+// Add future recipe types here; recipes reference them through their "type" field.
+const recipe_types = {
+	"one-pot": { label: "One-pot", color: "#7651a8", highlight: "#eee5f8", header: "#f1ffd8" },
+	"regular": { label: "Regular", color: "#2f7f3e", highlight: "#eefad0", header: "#f1ffd8" }
+};
+
+function build_recipe_type_key() {
+	const items_html = Object.entries(recipe_types).map(([type, options]) =>
+		`<li><span class="recipe_type_swatch" style="--type-color: ${options.color}"></span>${escape_html(options.label)}</li>`
+	).join("");
+
+	return `<aside class="recipe_type_key" aria-label="Recipe type key">
+		<h2>Recipe type</h2>
+		<ul>${items_html}</ul>
+	</aside>`;
+}
+
 /**
  * Render an error message in the app mount element.
  * @param {HTMLElement} app_element - Root mount node.
@@ -40,9 +57,10 @@ async function initialize_recipe_view() {
 			return response.json();
 		}));
 
-		app_element.innerHTML = recipe_json_list
-			.map(recipe_json_to_html_table)
+		const recipes_html = recipe_json_list
+			.map((recipe_json) => recipe_json_to_html_table(recipe_json, recipe_types))
 			.join("\n");
+		app_element.innerHTML = `<div class="recipe_list">${recipes_html}</div>${build_recipe_type_key()}`;
 	} catch (error) {
 		render_error(app_element, `Could not load recipe: ${error.message}`);
 	}

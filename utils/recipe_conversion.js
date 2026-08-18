@@ -152,11 +152,18 @@ function build_table_colgroup(column_json_list) {
 /**
  * Render recipe JSON as a flow-table HTML block.
  * @param {object} recipe_json - Recipe data using compact or full keys.
+ * @param {object} recipe_type_options - Type names mapped to theme options.
  * @returns {string} HTML table string.
  */
-function recipe_json_to_html_table(recipe_json) {
+function recipe_json_to_html_table(recipe_json, recipe_type_options = {}) {
 	const table_class_name = pick_key(recipe_json, "table_class_name", "cls") || "recipe_flow_table";
 	const safe_table_class_name = escape_html(table_class_name);
+	const type_value = pick_key(recipe_json, "type", "type") || "regular";
+	const safe_type_value = escape_html(type_value);
+	const type_options = recipe_type_options[type_value] || recipe_type_options.regular;
+	const theme_style = type_options
+		? ` style="--recipe-accent:${escape_html(type_options.color)};--recipe-highlight:${escape_html(type_options.highlight)};--recipe-header:${escape_html(type_options.header)}"`
+		: "";
 	const title_value = pick_key(recipe_json, "title", "title");
 	const source_value = pick_key(recipe_json, "source", "src");
 	const columns = pick_key(recipe_json, "columns", "cols") || [];
@@ -168,7 +175,7 @@ function recipe_json_to_html_table(recipe_json) {
 		: "";
 	const title_html = title_value ? `<h2 class="recipe_title">${escape_html(title_value)}</h2>` : "";
 
-	return `<section class="recipe">
+	return `<section class="recipe recipe_type_${safe_type_value}" data-recipe-type="${safe_type_value}"${theme_style}>
 	${title_html}
 	<table class="${safe_table_class_name}">
 		${colgroup_html}

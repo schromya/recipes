@@ -1,9 +1,9 @@
 import { recipe_json_to_html_table } from "./utils/recipe_conversion.js";
 
 const RECIPE_FILE_PATHS = [
-	"recipes/ground_beef_and_potatoes_recipe.json",
+	"recipes/ground_beef_and_potatoes.json",
 	"recipes/guacamole.json",
-	"recipes/espresso_brownie_recipe.json",
+	"recipes/crepes.json",
 ];
 
 // Add future recipe types here; recipes reference them through their "type" field.

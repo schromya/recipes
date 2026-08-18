@@ -1,0 +1,34 @@
+{
+  "title": "Crepes (Makes About 8)",
+  "type": "regular",
+  "source": "Mya",
+  "columns": [
+    [
+      {"t":"1 cup flour"},
+      {"t":"1 3/4 cups milk"},
+      {"t":"2 eggs"},
+      {"t":"1/8 teaspoon salt"},
+      {"t":"Butter"},
+      {"t":"Optional toppings: Nutella; fruit (bananas, strawberries, etc); sugar"}
+    ],
+    [
+      {"t":"Mix in a bowl until the batter does not have many lumps.","k":"action_cell","r":4},
+      null,
+      null,
+      null,
+      {"t":"Heat a frying pan over medium heat, then coat the hot pan with a thin layer of butter. A pan with low sides works best.","k":"action_cell"},
+      {"k":"empty"}
+    ],
+    [
+      {"t":"Pour in 1/3 cup batter and tilt to spread. Cook about 40 seconds per side, transfer to a plate, re-butter the pan, and repeat.","k":"action_cell","r":5},
+      null,
+      null,
+      null,
+      null,
+      {"k":"empty"}
+    ],
+    [
+      {"t":"Add your desired toppings and roll up the crepes.","k":"action_cell","r":6}
+    ]
+  ]
+}

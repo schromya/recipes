@@ -117,9 +117,10 @@ export function recipe_json_to_html_table(recipe_json, recipe_type_options = {})
 		? ` style="--recipe-accent:${escape_html(type_options.color)};--recipe-highlight:${escape_html(type_options.highlight)}"`
 		: "";
 	const rows_html = build_table_rows(columns);
-	const source_html = source
-		? `<p class="recipe_source">Recipe source: <a href="${escape_html(source)}">${escape_html(source)}</a></p>`
-		: "";
+	const source_content = /^https?:\/\//.test(source)
+		? `<a href="${escape_html(source)}">${escape_html(source)}</a>`
+		: escape_html(source || "");
+	const source_html = source ? `<p class="recipe_source">Recipe source: ${source_content}</p>` : "";
 	const recipe_id = title_to_id(title || "recipe");
 	const title_html = title
 		? `<h2 class="recipe_title">${escape_html(title)} <a class="recipe_link" href="#${recipe_id}" aria-label="Copy link to ${escape_html(title)}"><img src="assets/link.svg" alt=""></a></h2>`

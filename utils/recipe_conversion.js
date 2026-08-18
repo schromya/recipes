@@ -13,25 +13,6 @@ export function escape_html(value) {
 }
 
 /**
- * Resolve a property from long or short JSON key names.
- * @param {object} source_object - Object to read from.
- * @param {string} long_key - Full key name.
- * @param {string} short_key - Compact key name.
- * @returns {*} Matched value or undefined.
- */
-export function pick_key(source_object, long_key, short_key) {
-	if (!source_object || typeof source_object !== "object") {
-		return undefined;
-	}
-
-	if (Object.prototype.hasOwnProperty.call(source_object, short_key)) {
-		return source_object[short_key];
-	}
-
-	return source_object[long_key];
-}
-
-/**
  * Validate a requested row count.
  * @param {number|string} row_count_value - Number of rows occupied by the cell.
  * @returns {number|undefined} Row span count or undefined when invalid.
@@ -47,15 +28,15 @@ export function get_row_span(row_count_value) {
 }
 
 /**
- * Build one HTML cell string from compact or full JSON cell data.
+ * Build one HTML cell string from compact JSON cell data.
  * @param {object} cell_json - Cell with text/class/span values.
  * @returns {string} HTML td element string.
  */
 export function build_table_cell(cell_json, row_span_override) {
-	const cell_text = escape_html(pick_key(cell_json, "text", "t") || "");
-	const class_name_value = pick_key(cell_json, "class_name", "k");
-	const col_span_value = pick_key(cell_json, "col_span", "c");
-	const row_span_value = pick_key(cell_json, "row_span", "r");
+	const cell_text = escape_html(cell_json.t || "");
+	const class_name_value = cell_json.k;
+	const col_span_value = cell_json.c;
+	const row_span_value = cell_json.r;
 	const final_row_span_value = row_span_override || row_span_value;
 	const is_merged_cell = row_span_override > 1;
 
@@ -76,14 +57,14 @@ export function build_table_cell(cell_json, row_span_override) {
 export function build_table_rows(rows) {
 	const covered_columns_by_row = rows.map(() => new Set());
 	const rendered_rows = rows.map((row_json, row_index) => {
-		const row_cells = Array.isArray(row_json) ? row_json : pick_key(row_json, "cells", "x") || [];
+		const row_cells = row_json;
 		let column_index = 0;
 		const cells_html = [];
 
 		row_cells.forEach((cell_json) => {
-			const row_count_value = pick_key(cell_json, "row_span", "r");
+			const row_count_value = cell_json.r;
 			const coverage_row_span = get_row_span(row_count_value);
-			const column_span = Number(pick_key(cell_json, "col_span", "c")) || 1;
+			const column_span = Number(cell_json.c) || 1;
 			const is_covered = covered_columns_by_row[row_index].has(column_index);
 
 			if (is_covered) {
@@ -126,7 +107,7 @@ export function build_table_colgroup(column_json_list) {
 			return `<col style="width:${escape_html(String(column_json))}">`;
 		}
 
-		const width_value = pick_key(column_json, "width", "w");
+		const width_value = column_json.w;
 
 		if (!width_value) {
 			return "<col>";
@@ -140,23 +121,23 @@ export function build_table_colgroup(column_json_list) {
 
 /**
  * Render recipe JSON as a flow-table HTML block.
- * @param {object} recipe_json - Recipe data using compact or full keys.
+ * @param {object} recipe_json - Recipe data using the project recipe schema.
  * @param {object} recipe_type_options - Type names mapped to theme options.
  * @returns {string} HTML table string.
  */
 export function recipe_json_to_html_table(recipe_json, recipe_type_options = {}) {
-	const table_class_name = pick_key(recipe_json, "table_class_name", "cls") || "recipe_flow_table";
+	const table_class_name = recipe_json.cls || "recipe_flow_table";
 	const safe_table_class_name = escape_html(table_class_name);
-	const type_value = pick_key(recipe_json, "type", "type") || "regular";
+	const type_value = recipe_json.type || "regular";
 	const type_options = recipe_type_options[type_value] || recipe_type_options.regular;
 	const theme_style = type_options
 		? ` style="--recipe-accent:${escape_html(type_options.color)};--recipe-highlight:${escape_html(type_options.highlight)}"`
 		: "";
-	const title_value = pick_key(recipe_json, "title", "title");
-	const source_value = pick_key(recipe_json, "source", "src");
-	const columns = pick_key(recipe_json, "columns", "cols") || [];
+	const title_value = recipe_json.title;
+	const source_value = recipe_json.source;
+	const columns = recipe_json.cols || [];
 	const colgroup_html = build_table_colgroup(columns);
-	const rows = pick_key(recipe_json, "rows", "rows") || [];
+	const rows = recipe_json.rows || [];
 	const rows_html = build_table_rows(rows);
 	const source_html = source_value
 		? `<p class="recipe_source">Recipe source: <a href="${escape_html(source_value)}">${escape_html(source_value)}</a></p>`

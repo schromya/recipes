@@ -9,7 +9,6 @@ const RECIPE_FILE_PATHS = [
 	"recipes/crepes.json",
 ];
 
-// Add future recipe types here; recipes reference them through their "type" field.
 const RECIPE_TYPES = {
 	"one-pot": { label: "One-pot", color: "#7651a8", highlight: "#eee5f8" },
 	"regular": { label: "Regular", color: "#2f7f3e", highlight: "#eefad0" }

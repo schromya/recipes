@@ -34,7 +34,7 @@
       {"k":"empty", "r":"3"}
     ],
     [
-      {"t":"Spread out flat on oiled sheet pan and cook at 350°F for 20 minutes","k":"action_cell","r":10},
+      {"t":"Spread out flat on oiled sheet pan and cook at 350°F for 20 minutes.","k":"action_cell","r":10},
       null, null, null, null, null, null, null, null, null,
       {"k":"empty", "r":3}
     ],

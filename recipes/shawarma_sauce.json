@@ -1,0 +1,18 @@
+{
+  "title": "Shawarma Sauce",
+  "type": "one-pot",
+  "source": "https://www.reddit.com/r/food/comments/ybwddw/homemade_shawarma_chicken_rice_bowl/",
+  "columns": [
+    [
+      {"t":"3 Tbsp Balkan style or Greek yogurt plain"},
+      {"t":"3 Tbsp mayonnaise"},
+      {"t":"1 clove minced garlic"},
+      {"t":"1 Tbsp minced fresh parsley"},
+      {"t":"2 Tbsp lemon juice"},
+      {"t":"1/4 tsp salt"}
+    ],
+    [
+      {"t":"Combine ingredients and chill in fridge for ~30 minutes.", "k":"action_cell", "r": 6}
+    ]
+  ]
+}

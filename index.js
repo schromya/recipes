@@ -2,6 +2,8 @@ import { recipe_json_to_html_table } from "./utils/recipe_conversion.js";
 
 const RECIPE_FILE_PATHS = [
 	"recipes/chicken_shawarma.json",
+	"recipes/shawarma_rice.json",
+	"recipes/shawarma_sauce.json",
 	"recipes/ground_beef_and_potatoes.json",
 	"recipes/guacamole.json",
 	"recipes/crepes.json",

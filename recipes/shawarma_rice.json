@@ -1,0 +1,19 @@
+{
+  "title": "Shawarma Rice",
+  "type": "one-pot",
+  "source": "https://www.reddit.com/r/food/comments/ybwddw/homemade_shawarma_chicken_rice_bowl/",
+  "columns": [
+    [
+      {"t":"1/2 Tbsp olive oil"},
+      {"t":"1 cup basmati rice"},
+      {"t":"2 cups water"},
+      {"t":"1/2 chicken bouillon cube"},
+      {"t":"1/4 tsp turmeric"},
+      {"t":"1/4 cumin"},
+      {"t":"Salt and pepper to taste"}
+    ],
+    [
+      {"t":"Cook in rice cooker or on stove.", "k":"action_cell", "r": 7}
+    ]
+  ]
+}

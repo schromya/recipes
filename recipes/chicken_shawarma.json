@@ -1,0 +1,45 @@
+{
+  "title": "Chicken Shawarma",
+  "type": "regular",
+  "source": "https://themodernproper.com/chicken-shawarma-sheet-pan-dinner",
+  "columns": [
+    [
+      {"t":"1 cup plain Greek yogurt"},
+      {"t":"2 teaspoons ground cumin"},
+      {"t":"1 teaspoon ground cardamoms"},
+      {"t":"2 teaspoons ground turmeric"},
+      {"t":"2 teaspoons ground cinnamon"},
+      {"t":"2 teaspoons kosher salt"},
+      {"t": "2 pounds chicken thigh, cut into 1-inch strips"},
+      {"t":"Oil to coat pan"},
+      {"t":"1 red onion, cut into ½-inch thick slices"},
+      {"t":"2 large red bell peppers, cut into ½-inch thin strips"},
+      {"t":"Optional: 4-8 pita bread"},
+      {"t":"Optional:½ English cucumber, diced"},
+      {"t":"Optional: 1 Roma tomato, sliced"}
+    ],
+    [
+      {"t":"Mix together.","k":"action_cell","r":6},
+      null, null, null, null, null,
+      {"k":"empty", "r":"1"},
+      {"k":"empty", "r":"3"},
+      null, null, 
+      {"k":"empty", "r":"3"}
+    ],
+    [
+      {"t":"Coat chicken with mixture. Optional: marinate in fridge for a couple of hours.","k":"action_cell","r":7},
+      null, null, null, null, null, null,
+      {"k":"empty", "r":"3"},
+      null, null, 
+      {"k":"empty", "r":"3"}
+    ],
+    [
+      {"t":"Spread out flat on oiled sheet pan and cook at 350°F for 20 minutes","k":"action_cell","r":10},
+      null, null, null, null, null, null, null, null, null,
+      {"k":"empty", "r":3}
+    ],
+    [
+      {"t":"Serve.","k":"action_cell","r":13}
+    ]
+  ]
+}

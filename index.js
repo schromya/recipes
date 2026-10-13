@@ -5,6 +5,7 @@ const RECIPE_FILE_PATHS = [
 	"recipes/shawarma_rice.json",
 	"recipes/shawarma_sauce.json",
 	"recipes/ground_beef_and_potatoes.json",
+	"recipes/korean_beef.json",
 	"recipes/guacamole.json",
 	"recipes/crepes.json",
 ];

@@ -1,0 +1,29 @@
+{
+  "title": "Korean Beef",
+  "source": "https://www.the-girl-who-ate-everything.com/cheater-korean-beef/#recipe",
+  "type": "one-pot",
+  "columns": [
+    [
+      {"t":"1 pound ground beef"},
+      {"t":"3 cloves garlic, minced"},
+      {"t":"1/4 cup brown sugar"},
+      {"t":"1/4 cup low-sodium soy sauce"},
+      {"t":"1 tablespoon sesame oil"},
+      {"t":"1/2 teaspoon fresh ginger, minced"},
+      {"t":"1/2-1 teaspoon crushed red pepper"},
+      {"t":"Salt and pepper to taste"},
+      {"t":"1/2 cup green onions, sliced"}
+    ],
+    [
+      {"t":"Brown in a large skillet over medium-high heat.","k":"action_cell"},
+      {"t":"Add and cook for couple of minutes. Then drain the fat.","k":"action_cell"},
+      {"t":"Add and simmer for a few minutes to blend the flavors.","k":"action_cell","r":6},
+      null,
+      null,
+      null,
+      null,
+      null,
+      {"t":"Top and serve.","k":"action_cell"}
+    ]
+  ]
+}
